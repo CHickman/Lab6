@@ -1,5 +1,3 @@
-package Lab6;
-import java.util.*;
 class TicTacToe
 {
 	private static String board[][];
@@ -22,9 +20,8 @@ class TicTacToe
 		}
 	}
 	
-	public static void game() {
+	public static void ticTacToe() {
 		new TicTacToe();
-		String numbersPlayed = ""; 
 		int position = 0, compPosition = 0;
 		System.out.println("Let's play Tic-Tac-Toe!");
 		int c = 1;
@@ -51,14 +48,11 @@ class TicTacToe
 					}
 				}
 				playerDone = play(position, true);
-				System.out.println("You played: " + position);
-				numbersPlayed += position + ", ";
-				System.out.println("Numbers played: " + numbersPlayed);
-				
+				System.out.println("You played: " + position);				
 			}
 			
 			//test for victory
-			if(scanBoardWin("X")){
+			if(scanBoardWin("X") || gameOver){
 				break; //break while loop so computer doesn't play.
 			}
 			
@@ -69,8 +63,6 @@ class TicTacToe
 				compPosition = compScan();
 				System.out.printf("Computer picked %d. \r" , compPosition);
 				compValid = play(compPosition, false);
-				numbersPlayed += compPosition + ", ";
-				System.out.println("Numbers played: " + numbersPlayed);
 				d++;
 			}
 			scanBoardWin("O");
@@ -101,8 +93,8 @@ class TicTacToe
 		pos = pos - 1; //Subtract one so we can use the natural 1-9 for the player instead of 0 indexed
 		if (!(isInteger(board[pos%3][pos/3]))) //Fail to play if a square is already used.
 		{
-				System.out.printf("Spot %d is taken! Try another!\r", pos + 1);
-				return false;
+			System.out.printf("Spot %d is taken! Try another!\r", pos + 1);
+			return false;
 		} else {
 			
 			if (x) //Set the position in the array to X or O depending on the player then return successful play.
@@ -174,6 +166,17 @@ class TicTacToe
 			printBoard();
 			System.out.println("You loose, good game!");
 		}
+		
+		//what if all squares are filled?  Draw game
+		if (	!(isInteger(board[0][0])) && !(isInteger(board[0][1])) && !(isInteger(board[0][2])) &&
+				!(isInteger(board[1][0])) && !(isInteger(board[1][1])) && !(isInteger(board[1][2])) && 
+				!(isInteger(board[2][0])) && !(isInteger(board[2][1])) && !(isInteger(board[2][2])) 
+			) 
+		{
+			System.out.println("Draw Game");
+			gameOver = true;
+		}
+		
 		return win;
 		
 	}
@@ -189,10 +192,10 @@ class TicTacToe
 		//Diagonals first
 		if (board[1][1].equals("X")) 
 		{
+			
 			//Check 3 & 7 for doubles but not already occupied
 			if ((board[0][2].equals("X") || board[2][0].equals("X")) && ((isInteger(board[0][2])) ^ (isInteger(board[2][0])))) 
 			{
-				System.out.println("X is in 5");
 				//3 or 7 detected, play other side if available.
 				if (board[2][0].equals("X")) {
 					pos = 7;
@@ -248,10 +251,9 @@ class TicTacToe
 				//No doubles detected,
 				pos = (int)((Math.random()*8+1));
 			}
-			
-			
-			
-		} else
+		} 
+		
+		else
 		{
 			//Check center
 			if (isInteger(board[1][1])) {
