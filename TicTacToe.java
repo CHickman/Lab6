@@ -4,9 +4,7 @@ class TicTacToe
 	private static final int ROWS = 3;
 	private static final int COLUMNS = 3;
 	private static boolean gameOver = false;
-	
-	static Scanner input = new Scanner(System.in);
-	
+		
 	public TicTacToe() 
 	{
 		board = new String[ROWS][COLUMNS];
@@ -35,11 +33,11 @@ class TicTacToe
 				//make sure selection is valid
 				while (!valid) {
 					System.out.print("Choose a spot by typing in the number: ");
-					while (!input.hasNextInt()) {
-						input.next();
+					while (!Lab6.input.hasNextInt()) {
+						Lab6.input.next();
 						System.out.print("Please use a number from the board: \n\r");
 					}
-					position = input.nextInt();
+					position = Lab6.input.nextInt();
 					//make sure input is in range
 					if (position > 9 || position < 1) {
 						System.out.print("Please use a number from the board: \n\r");
