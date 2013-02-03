@@ -21,7 +21,7 @@ class Lab6
         			Calculator.calculate();
         			break;
         		case 4:
-        			Story.method();
+        			Madlibs.Fill_In();
         			break;
         		default:
         			System.out.println("Goodbye!");
