@@ -18,7 +18,7 @@ class Lab6
         			TicTacToe.method();
         			break;
         		case 3:
-        			Calculator.method();
+        			Calculator.calculate();
         			break;
         		case 4:
         			Story.method();
