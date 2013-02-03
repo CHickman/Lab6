@@ -15,7 +15,7 @@ class Lab6
         			Number.playerGuess();
         			break;
         		case 2:
-        			TicTacToe.method();
+        			TicTacToe.game();
         			break;
         		case 3:
         			Calculator.calculate();
