@@ -22,7 +22,7 @@ class TicTacToe
 		}
 	}
 	
-	public static void main(String [] args) {
+	public static void game() {
 		new TicTacToe();
 		String numbersPlayed = ""; 
 		int position = 0, compPosition = 0;
