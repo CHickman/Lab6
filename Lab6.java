@@ -45,7 +45,7 @@ class Lab6
 				Calculator.calculate();
 				break;
 			case 4:
-				MadLib.Fill_In();
+				Story.Fill_In();
 				break;
 			default:
 				System.out.println("Goodbye!");
