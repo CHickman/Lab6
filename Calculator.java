@@ -8,7 +8,6 @@ public class Calculator
 	
 		//initialize variables
 		int operator = 1;	
-		int play = 1;
 		//initialize scanner
 		Scanner input = new Scanner(System.in);
 		
