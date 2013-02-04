@@ -3,7 +3,7 @@
 
 import java.util.Scanner;
 
-public class MadLibs
+public class Story
 {
   private static Scanner myInputDevice = new Scanner(System.in);
 	public static void Fill_In()
